@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day: 2016-02-28
+  product_id: 1
+  quantity: MyString
+  unit: MyString
+  client_id: 1
+  delivery_challan_number: MyString
+
+two:
+  day: 2016-02-28
+  product_id: 1
+  quantity: MyString
+  unit: MyString
+  client_id: 1
+  delivery_challan_number: MyString

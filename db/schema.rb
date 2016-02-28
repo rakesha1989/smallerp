@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212065927) do
+ActiveRecord::Schema.define(:version => 20160227201148) do
 
   create_table "addstocks", :force => true do |t|
     t.decimal  "stock"
@@ -20,11 +20,27 @@ ActiveRecord::Schema.define(:version => 20130212065927) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "attendences", :force => true do |t|
+    t.integer  "employee_id"
+    t.boolean  "attendence",  :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
+
   create_table "clients", :force => true do |t|
     t.string   "name"
     t.text     "address"
     t.string   "phone_number"
     t.text     "info"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "companies", :force => true do |t|
+    t.string   "name"
+    t.string   "t_i_n_no"
+    t.float    "vat_sales"
+    t.float    "vat_purchase"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
@@ -40,6 +56,50 @@ ActiveRecord::Schema.define(:version => 20130212065927) do
   end
 
   add_index "contacts", ["client_id"], :name => "index_contacts_on_client_id"
+
+  create_table "despatches", :force => true do |t|
+    t.date     "day"
+    t.integer  "product_id"
+    t.string   "quantity"
+    t.string   "unit"
+    t.integer  "client_id"
+    t.string   "delivery_challan_number"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "employee_id"
+    t.string   "gender"
+    t.date     "joining_date"
+    t.date     "date_of_birth"
+    t.text     "adress"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "invoices", :force => true do |t|
+    t.integer  "client_id"
+    t.integer  "invoice_number"
+    t.date     "day"
+    t.text     "terms"
+    t.date     "due_date"
+    t.integer  "product_id"
+    t.string   "description"
+    t.decimal  "quantity"
+    t.string   "unit"
+    t.decimal  "rate"
+    t.decimal  "amount"
+    t.float    "tax"
+    t.text     "message"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "materials", :force => true do |t|
     t.string   "name"
@@ -98,6 +158,15 @@ ActiveRecord::Schema.define(:version => 20130212065927) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "suppliers", :force => true do |t|
+    t.string   "name"
+    t.text     "adress"
+    t.string   "phone_number"
+    t.text     "info"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  t_i_n_no: MyString
+  vat_sales: 1.5
+  vat_purchase: 1.5
+
+two:
+  name: MyString
+  t_i_n_no: MyString
+  vat_sales: 1.5
+  vat_purchase: 1.5
